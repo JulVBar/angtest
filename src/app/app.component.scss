@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  div {
+    width: 50%;
+    margin: 0 5rem;
+  }
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StoreDisplayComponent } from './store-display.component';
+import { UserFiltersComponent } from './user-filters.component';
 
-describe('StoreDisplayComponent', () => {
-  let component: StoreDisplayComponent;
-  let fixture: ComponentFixture<StoreDisplayComponent>;
+describe('UserFiltersComponent', () => {
+  let component: UserFiltersComponent;
+  let fixture: ComponentFixture<UserFiltersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StoreDisplayComponent ]
+      declarations: [ UserFiltersComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StoreDisplayComponent);
+    fixture = TestBed.createComponent(UserFiltersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

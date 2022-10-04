@@ -4,33 +4,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreDisplayComponent } from './components/store-display/store-display.component';
-import { DispatchSectionComponent } from './components/dispatch-section/dispatch-section.component';
-import { FiltersComponent } from './components/filters/filters.component';
-import { StoreModule } from '@ngrx/store';
 
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule,  FormsModule}from '@angular/forms';
-import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { FiltersModule } from './modules/filters/filters.module';
+import { CounterModule } from './modules/counter/counter.module';
+import { ProductsModule } from './modules/products/products.module';
+
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    StoreDisplayComponent,
-    DispatchSectionComponent,
-    FiltersComponent,
-    FilterPipePipe
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
-    ReactiveFormsModule,
-
+    //modules
+    FiltersModule,
+    CounterModule,
+    ProductsModule,
+    //store
     StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

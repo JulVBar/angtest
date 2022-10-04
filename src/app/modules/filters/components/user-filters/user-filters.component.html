@@ -1,0 +1,44 @@
+<div>
+  <button mat-flat-button color="primary" (click)="filterByName(name)">Filter by Name</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter age</mat-label>
+    <input matInput type="text" [(ngModel)]="name">
+  </mat-form-field>
+</div>
+
+<div>
+  <button mat-flat-button color="primary" (click)="filterByAge(age)">Filter by Age</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter age</mat-label>
+    <input matInput type="number" [(ngModel)]="age">
+  </mat-form-field>
+</div>
+
+<hr>
+
+<div>
+  <mat-form-field appearance="fill">
+    <input matInput type="text" placeholder="Filter pipe" [(ngModel)]="term">
+  </mat-form-field>
+</div>
+
+<section>
+  <div class="block">
+    <h2>Subscribe in method</h2>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of dataService.persons | filterPipe:term">
+        <div class="list-item">Name: {{item.name}}</div>
+        <div>Age: {{item.age}}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="block">
+    <h2>Subscribe on stream</h2>
+    <mat-list role="list" *ngIf="people$ | async as people">
+      <mat-list-item role="listitem" *ngFor="let item of people | filterPipe:term ">
+        <div class="list-item">Name: {{item.name}}</div>
+        <div>Age: {{item.age}}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</section>

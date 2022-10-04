@@ -1,0 +1,10 @@
+<mat-card>
+  <div *ngIf="isLoading$ | async">Loading........</div>
+  <div *ngIf="error$ | async as error">{{error}}</div>
+
+  <mat-list role="list" *ngIf="products$ | async as products">
+    <mat-list-item role="listitem" *ngFor="let item of products">
+      <div class="list-item">{{item.name}}</div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

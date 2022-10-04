@@ -1,0 +1,14 @@
+<mat-card class="card">
+  <button mat-flat-button color="accent" (click)="increment()">
+    <mat-icon fontIcon="add"></mat-icon>
+  </button>
+  <span>{{ count$ | async }}</span>
+  <button mat-flat-button color="accent" (click)="decrement()">
+    <mat-icon fontIcon="remove"></mat-icon>
+  </button>
+  <hr>
+  <button mat-flat-button color="accent" (click)="reset()">
+    Reset
+  </button>
+</mat-card>
+
