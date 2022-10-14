@@ -48,9 +48,11 @@
   </mat-form-field>
 </div>
 
+<button (click)="addPerson()">Add one</button>
+
 <section>
   <div class="block">
-    <h2>Subscribe in method</h2>
+    <h2>Array in service</h2>
     <mat-list role="list">
       <mat-list-item role="listitem" *ngFor="let item of dataService.persons | filterPipe:term">
         <div class="list-item">Name: {{item.name}}</div>
@@ -59,9 +61,18 @@
     </mat-list>
   </div>
   <div class="block">
-    <h2>Subscribe on stream</h2>
+    <h2>Sub On stream</h2>
     <mat-list role="list" *ngIf="people$ | async as people">
       <mat-list-item role="listitem" *ngFor="let item of people | filterPipe:term ">
+        <div class="list-item">Name: {{item.name}}</div>
+        <div>Age: {{item.age}}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div class="block">
+    <h2>Array in comp</h2>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let item of data | filterPipe:term ">
         <div class="list-item">Name: {{item.name}}</div>
         <div>Age: {{item.age}}</div>
       </mat-list-item>

@@ -44,6 +44,10 @@ export class DataServiceTsService {
     )
   }
 
+  addOne(obj: Person): Observable<Person> {
+    return this.http.post<Person>(this.dataBase, obj)
+  }
+
   getAllNames(filter: string, term: string | number): Observable<Person[]> {
     const url = `${this.dataBase}?${filter}=${term}`;
     return this.http.get<Person[]>(url)

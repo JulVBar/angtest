@@ -32,6 +32,7 @@ export class UserFiltersComponent implements OnInit {
 
 
   people$: Observable<Person[]>
+  data: Person[]
 
   showStreamValue() {
     this.showMethodValueStrict = this.dataService.stream$.getValue(); //mount: -(only call showmethod), next:-
@@ -39,8 +40,10 @@ export class UserFiltersComponent implements OnInit {
   }
   ngOnInit(): void {
     this.dataService.stream$.subscribe()
+
     this.dataService.getAll().subscribe(); //нужна отписка
     this.people$ = this.dataService.getAll(); //отписка не нужна, т.к. | async
+    this.dataService.getAll().subscribe(data=>this.data = data);
 
     this.ngGetStrictValue = this.dataService.stream$.getValue(); //mount: +, next:-
     this.ngGetMethodValue = this.dataService.getStreamValueMethod(); //mount: +, next:-
@@ -56,6 +59,17 @@ export class UserFiltersComponent implements OnInit {
   filterByAge(age: number) {
     this.age = age;
     this.people$ = this.dataService.getAllNames('age', age);
+  }
+
+  addPerson() {
+    this.dataService.addOne({
+        name: 'Name',
+        age: 999
+    }).subscribe(()=>{
+      console.log('success')
+      this.people$ = this.dataService.getAll()
+    })
+
   }
 
 }
