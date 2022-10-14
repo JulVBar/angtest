@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { DataServiceTsService } from 'src/app/services/data.service.ts.service';
 import { increment, decrement, reset } from '../../store/counter.actions';
 
 @Component({
@@ -11,7 +12,8 @@ import { increment, decrement, reset } from '../../store/counter.actions';
 export class CounterDisplayComponent implements OnInit {
   count$: Observable<number>
 
-  constructor(private store: Store<{ counter: number }>) {
+  constructor(private store: Store<{ counter: number }>,
+    public dataService: DataServiceTsService) {
     this.count$ = store.select('counter');
   }
 

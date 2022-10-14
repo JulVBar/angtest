@@ -1,4 +1,30 @@
 <div>
+  <button (click)="dataService.setNextValue()">Change on false</button>
+  <button (click)="dataService.setNextValue1()">Change on true</button>
+  <button (click)="showStreamValue()">Show value</button>
+</div>
+
+<ul>
+  <li>Show strict: {{showMethodValueStrict}}</li>
+  <li>Show method: {{showMethodValueStrict}}</li>
+  <li>Constructor strict: {{constrGetStrictValue}}</li>
+  <li>Constructor method: {{constrGetMethodValue}}</li>
+  <li>Ng strict: {{ngGetStrictValue}}</li>
+  <li>Ng method: {{ngGetMethodValue}}</li>
+  <li>Get value strict in component html: {{dataService.stream$.getValue()}}</li>
+</ul>
+
+<div *ngIf="dataService.stream$ | async">
+  First subscribe show if true
+</div>
+
+<div *ngIf="dataService.stream$ | async">
+  Second subscribe show if true
+</div>
+
+
+
+<div>
   <button mat-flat-button color="primary" (click)="filterByName(name)">Filter by Name</button>
   <mat-form-field appearance="fill">
     <mat-label>Enter age</mat-label>

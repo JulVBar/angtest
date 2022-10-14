@@ -1,3 +1,6 @@
+<div *ngIf="dataService.stream$ | async">
+  Show this if true
+</div>
 <mat-card class="card">
   <button mat-flat-button color="accent" (click)="increment()">
     <mat-icon fontIcon="add"></mat-icon>

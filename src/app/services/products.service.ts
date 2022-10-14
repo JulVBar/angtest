@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, map, tap, filter } from 'rxjs';
+import { Observable, map, tap, filter, Subject, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ProductInterface } from '../interfaces/product.interface';
 
@@ -9,7 +9,11 @@ import { ProductInterface } from '../interfaces/product.interface';
 })
 export class ProductsService {
 
+
+
   constructor(private http: HttpClient) { }
+
+
 
   public getProducts(): Observable<ProductInterface[]> {
     const url = `${environment.apiUrl}`;
